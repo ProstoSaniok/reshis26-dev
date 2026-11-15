@@ -103,6 +103,7 @@ interface PredictionResponse {
                 <time [attr.datetime]="prediction.date">{{ prediction.date }}</time>
                 <span>Спрос при цене {{ prediction.price | number:'1.2-2' }} ₽</span>
               </div>
+              <p class="forecast-source">Источник прогноза — {{ prediction.source }}</p>
             </div>
           </div>
           <div class="metrics">
@@ -112,7 +113,21 @@ interface PredictionResponse {
           </div>
           <div class="chart-wrap" aria-label="График спроса по квантилям">
             <div class="chart-label">
-              <span class="chart-legend"><i class="legend-demand"></i>спрос <i class="legend-capacity"></i>вместимость</span>
+              <span class="chart-legend">
+                <i class="legend-demand"></i>спрос
+                <span class="legend-help" tabindex="0" role="img"
+                      aria-label="Что показывает спрос"
+                      data-tooltip="Прогноз числа желающих купить билет для каждого квантиля.">?</span>
+                <i class="legend-capacity"></i>вместимость
+                <span class="legend-help" tabindex="0" role="img"
+                      aria-label="Что показывает вместимость"
+                      data-tooltip="Вместимость рейса, то есть число доступных мест.">?</span>
+              </span>
+              <div class="chart-summary" aria-live="polite">
+                <span>Выбран</span>
+                <strong>квантиль {{ activeQuantile | number:'1.1-1' }}</strong>
+                <strong>спрос {{ prediction.demand[activeQuantile] | number:'1.0-6' }} чел.</strong>
+              </div>
             </div>
             <div class="chart-scroll">
               <svg viewBox="0 0 640 290" role="group" aria-label="Спрос по квантилям">
@@ -128,7 +143,7 @@ interface PredictionResponse {
                   <g tabindex="0" [attr.aria-label]="'Квантиль ' + (q | number:'1.1-1') + ', спрос ' + (prediction.demand[q] | number:'1.0-6')"
                      (mouseenter)="activeQuantile = q" (focus)="activeQuantile = q" (click)="activeQuantile = q">
                     <circle [attr.cx]="chartX(q)" [attr.cy]="chartY(prediction.demand[q])" r="12" class="hit-area"></circle>
-                    <circle [attr.cx]="chartX(q)" [attr.cy]="chartY(prediction.demand[q])" [class.median]="q === '0.5'" r="5"></circle>
+                    <circle [attr.cx]="chartX(q)" [attr.cy]="chartY(prediction.demand[q])" [class.median]="q === activeQuantile" r="5"></circle>
                   </g>
                   <text [attr.x]="chartX(q)" y="265" text-anchor="middle">{{ q | number:'1.1-1' }}</text>
                 </ng-container>
@@ -136,8 +151,7 @@ interface PredictionResponse {
                 <text x="610" [attr.y]="chartY(prediction.seats) - 8" text-anchor="end" class="capacity-label">Вместимость: {{ prediction.seats | number:'1.0-0' }}</text>
               </svg>
             </div>
-            <p aria-live="polite">Квантиль {{ activeQuantile | number:'1.1-1' }} · Спрос: {{ prediction.demand[activeQuantile] | number:'1.0-6' }} чел.</p>
-            <p class="chart-note">Оранжевая точка 0,5 — медианный спрос, который используется в карточке и расчёте продаж.</p>
+            <p class="chart-note">Наведите курсор, перейдите к точке с клавиатуры или нажмите на неё, чтобы выбрать квантиль.</p>
           </div>
         </section>
         <ng-template #emptyState>

@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
 html {
   background: var(--color-bg);
 }
