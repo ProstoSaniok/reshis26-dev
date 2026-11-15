@@ -16,7 +16,7 @@ from .data_loader import CalculatorData, DataValidationError, QUANTILES
 
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
-FORECAST_FILENAME = os.getenv("FORECAST_FILENAME", "seasonal_forecast.csv")
+FORECAST_FILENAME = os.getenv("FORECAST_FILENAME", "ПоповАлександрМаксимович_my_forecast.csv")
 FRONTEND_DIR = Path(__file__).resolve().parents[1] / "frontend" / "dist" / "browser"
 
 
@@ -32,7 +32,7 @@ try:
 except DataValidationError as error:
     raise RuntimeError(f"Ошибка загрузки данных калькулятора: {error}") from error
 
-app = FastAPI(title="Решись Авиа — калькулятор продаж", version="1.0.0")
+app = FastAPI(title="Динамическое ценообразование авиабилетов", version="1.0.0")
 
 
 class PredictionRequest(BaseModel):
@@ -108,7 +108,7 @@ def index() -> FileResponse:
             status_code=503,
             detail=(
                 "Angular frontend ещё не собран. Выполните npm run build "
-                "в development/solution/frontend."
+                "в frontend."
             ),
         )
     return FileResponse(index_path)
