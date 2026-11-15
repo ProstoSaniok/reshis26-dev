@@ -31,6 +31,10 @@
     flex-direction: column;
   }
 
+  .chart-summary {
+    justify-content: flex-start;
+  }
+
   .site-footer {
     align-items: flex-start;
     gap: 24px;
