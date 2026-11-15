@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Graphik LC";
+  src: url("/fonts/Graphik_LC_Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Graphik LC";
+  src: url("/fonts/Graphik_LC_Medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Graphik LC";
+  src: url("/fonts/Graphik_LC_Bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+:root {
+  color-scheme: dark;
+  --color-bg: #141414;
+  --color-surface: #1f1f1f;
+  --color-surface-muted: #282828;
+  --color-surface-accent: #775aff;
+  --color-text: #ffffff;
+  --color-text-muted: #d1d1d1;
+  --color-text-subtle: #9b9b9b;
+  --color-border: #454545;
+  --color-border-strong: #686868;
+  --color-accent: #775aff;
+  --color-accent-soft: #2d245f;
+  --color-capacity: #ff662c;
+  --color-violet: #be84fc;
+  --color-error: #ff9b8f;
+  --color-error-bg: #422522;
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, .18);
+  --radius-card: 16px;
+  --radius-control: 8px;
+  --space-page: clamp(20px, 3.33vw, 48px);
+  --font-ui: "Graphik LC", "Graphik", "Inter", Arial, sans-serif;
+}

@@ -1,0 +1,118 @@
+.shell {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 18px var(--space-page) 36px;
+}
+
+.hero {
+  border-bottom: 1px solid var(--color-border);
+  max-width: 980px;
+  margin-bottom: clamp(42px, 7vw, 96px);
+  padding: clamp(32px, 6vw, 88px) 0 clamp(42px, 6vw, 80px);
+  position: relative;
+}
+
+.hero::after {
+  background: radial-gradient(circle, rgba(190, 132, 252, .32), transparent 68%);
+  content: "";
+  height: 360px;
+  pointer-events: none;
+  position: absolute;
+  right: 2%;
+  top: 4%;
+  width: 360px;
+  z-index: -1;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.45;
+  margin-top: 28px;
+  max-width: 570px;
+}
+
+.workspace {
+  align-items: start;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.form-card {
+  position: sticky;
+  top: 24px;
+}
+
+.card-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 34px;
+}
+
+.card-heading time,
+.result-meta > span {
+  color: var(--color-text-muted);
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.result-meta {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.result-meta > span {
+  margin-top: 10px;
+}
+
+footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.15;
+  margin-top: 64px;
+  padding-top: 18px;
+}
+
+.site-footer {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-footer > span {
+  white-space: nowrap;
+}
+
+.site-footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--color-accent);
+}

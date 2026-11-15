@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  margin: 0;
+  min-width: 320px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+  letter-spacing: -.05em;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 88px);
+  line-height: .92;
+}
+
+h2 {
+  font-size: clamp(24px, 2.5vw, 36px);
+  line-height: .98;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}

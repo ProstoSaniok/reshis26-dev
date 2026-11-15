@@ -1,0 +1,92 @@
+label {
+  color: var(--color-text-muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 24px 0 9px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+
+select,
+input {
+  appearance: none;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  color: var(--color-text);
+  outline: 0;
+  padding: 15px 14px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+  width: 100%;
+}
+
+select:focus,
+input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.price-input {
+  position: relative;
+}
+
+.price-input input {
+  padding-right: 35px;
+}
+
+.price-input span {
+  color: var(--color-text-subtle);
+  position: absolute;
+  right: 14px;
+  top: 14px;
+}
+
+.hint {
+  color: var(--color-text-subtle);
+  font-size: 12px;
+}
+
+.hint {
+  margin: 9px 0 0;
+}
+
+button {
+  background: var(--color-accent);
+  border: 0;
+  border-radius: var(--radius-control);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 32px;
+  padding: 15px;
+  transition: background .2s ease, transform .2s ease;
+  width: 100%;
+}
+
+button:hover {
+  background: #907bff;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: var(--color-border-strong);
+  color: var(--color-text-subtle);
+  cursor: wait;
+  transform: none;
+}
+
+.error {
+  background: var(--color-error-bg);
+  border-radius: 9px;
+  color: var(--color-error);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 14px 0 0;
+  padding: 11px;
+}
